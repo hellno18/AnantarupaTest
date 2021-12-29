@@ -6,8 +6,8 @@ public class InteractB : MonoBehaviour
 {
     public GameObject pressButtonE;
     public GameObject pressedButtonE;
-    public float mforce = 20f;
-    [SerializeField] private bool entered;
+    public float mForce = 20f;
+    [SerializeField] private bool isEntered;
     [SerializeField] private Rigidbody2D rb2d;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private Transform player;
@@ -24,7 +24,7 @@ public class InteractB : MonoBehaviour
 
     private void Update()
     {
-        if (entered)
+        if (isEntered)
         {
             PositionCheck();
             if (Input.GetKeyDown(KeyCode.E))
@@ -34,9 +34,9 @@ public class InteractB : MonoBehaviour
                 rb2d.isKinematic = false;
                 boxCollider.isTrigger = false;
                 if(isLeft)
-                    rb2d.AddForce(Vector2.left * mforce);
+                    rb2d.AddForce(Vector2.left * mForce);
                 if(isRight)
-                    rb2d.AddForce(Vector2.right * mforce);
+                    rb2d.AddForce(Vector2.right * mForce);
                 StartCoroutine(AddDrag());
             }
             if (Input.GetKeyUp(KeyCode.E))
@@ -46,10 +46,7 @@ public class InteractB : MonoBehaviour
                 boxCollider.isTrigger = true;
             }
         }
-        else
-        {
-            pressedButtonE.SetActive(false);
-        }
+     
     }
 
     private IEnumerator AddDrag()
@@ -66,7 +63,7 @@ public class InteractB : MonoBehaviour
 
         rb2d.velocity = Vector2.zero;
         rb2d.drag = 0;
-        
+        pressedButtonE.SetActive(false);
     }
 
 
@@ -91,8 +88,8 @@ public class InteractB : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pressButtonE.SetActive(true);
+            isEntered = true;
         }
-        entered = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -102,8 +99,8 @@ public class InteractB : MonoBehaviour
             pressButtonE.SetActive(false);
             rb2d.isKinematic = true;
             boxCollider.isTrigger = true;
+            isEntered = false;
         }
-        entered = false;
     }
 
 }

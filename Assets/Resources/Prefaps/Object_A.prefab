@@ -1179,8 +1179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressButtonE: {fileID: 1815652730670312179}
   pressedButtonE: {fileID: 1815652729979672577}
-  BubbleText: {fileID: 1815652729258455627}
-  entered: 0
+  bubbleText: {fileID: 1815652729258455627}
+  isEntered: 0
 --- !u!1 &1815652730668507238
 GameObject:
   m_ObjectHideFlags: 0
