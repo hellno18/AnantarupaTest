@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractE : EnemyBaseE
+public class Player : PlayerController
 {
     
 }
