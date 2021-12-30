@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] protected float MovementSpeed = 1;
+    [SerializeField] private float MovementSpeed = 1;
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
 
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    protected void Move()
+    private void Move()
     {
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
