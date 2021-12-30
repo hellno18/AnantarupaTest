@@ -17,12 +17,9 @@ public class InteractA : MonoBehaviour
             {
                 pressedButtonE.SetActive(true);
                 bubbleText.SetActive(true);
+                StartCoroutine(DelayBubble());
             }
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                pressedButtonE.SetActive(false);
-                bubbleText.SetActive(false);
-            }
+
         }
         else
         {
@@ -31,12 +28,22 @@ public class InteractA : MonoBehaviour
         }
     }
 
+
+    private IEnumerator DelayBubble()
+    {
+        
+        yield return new WaitForSeconds(1);
+        pressedButtonE.SetActive(false);
+        bubbleText.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             pressButtonE.SetActive(true);
             isEntered = true;
+
         }
     }
 
