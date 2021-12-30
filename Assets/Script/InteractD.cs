@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InteractD : MonoBehaviour
 {
-    public GameObject pressButtonE;
-    public GameObject pressedButtonE;
+    [SerializeField] private GameObject pressButtonE;
+    [SerializeField] private GameObject pressedButtonE;
     public float mForce = 1f;
-    [SerializeField] private bool isEntered;
-    [SerializeField] private bool isGround;
+    private bool isEntered;
+    private bool isGround;
     private Rigidbody2D rb2d;
     [SerializeField] BoxCollider2D col;
 

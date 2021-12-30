@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InteractC : MonoBehaviour
 {
-    public GameObject pressButtonE;
-    public GameObject pressedButtonE;
+    [SerializeField] private GameObject pressButtonE;
+    [SerializeField] private GameObject pressedButtonE;
     private bool isEntered;
     private bool isMovingDown;
     private Animator anim;

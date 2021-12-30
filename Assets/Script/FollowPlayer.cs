@@ -5,10 +5,10 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     //delcare element 
-    public Transform target;
-    public Vector3 offset;
+    [SerializeField] private Transform target;
+    [SerializeField] private Vector3 offset;
     [Range(1,10)]
-    public float smoothFactor = 3;
+    [SerializeField] private float smoothFactor = 3;
 
     private void FixedUpdate()
     {

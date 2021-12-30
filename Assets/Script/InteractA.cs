@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InteractA : MonoBehaviour
 {
-    public GameObject pressButtonE;
-    public GameObject pressedButtonE;
-    public GameObject bubbleText;
-    [SerializeField] private bool isEntered;
+    [SerializeField] private GameObject pressButtonE;
+    [SerializeField] private GameObject pressedButtonE;
+    [SerializeField] private GameObject bubbleText;
+    private bool isEntered;
 
     private void Update()
     {
