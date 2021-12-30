@@ -7,4 +7,4 @@ all assets downloaded from unity assets store<br />
 
 unity version : Unity 2020.3.25f1 LTS<br />
 Other Tools : Photoshop, Visual Studio 2019<br />
-14 hours<br />
+12 hours<br />
