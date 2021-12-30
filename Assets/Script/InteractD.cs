@@ -1,16 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractD : EnemyBase
 {
+    [SerializeField] private float mForce;
+    private bool isGround;
+    [SerializeField] private BoxCollider2D col;
+    [SerializeField] private Rigidbody2D rb2d;
     protected override void Start()
     {
         mForce = 1f;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    protected override void Move()
+    protected override void Jump()
     {
         if (isEntered)
         {
@@ -23,7 +27,6 @@ public class InteractD : EnemyBase
             if (Input.GetKeyUp(KeyCode.E))
             {
                 pressedButtonE.SetActive(false);
-
             }
         }
         else

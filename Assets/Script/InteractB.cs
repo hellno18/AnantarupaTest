@@ -1,9 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractB : EnemyBase
 {
+    [SerializeField] private float mForce;
+    private Rigidbody2D rb2d;
+    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private Transform player;
+    private bool isLeft;
+    private bool isRight;
+
     protected override void Start()
     {
         mForce = 50f;
@@ -14,7 +21,7 @@ public class InteractB : EnemyBase
         
     }
 
-    protected override void Move()
+    protected override void GoesAway()
     {
         if (isEntered)
         {
@@ -42,7 +49,7 @@ public class InteractB : EnemyBase
         }
     }
 
-    protected IEnumerator AddDrag()
+    private IEnumerator AddDrag()
     {
        
         float current_drag = 0;
@@ -61,7 +68,7 @@ public class InteractB : EnemyBase
 
 
 
-    protected void PositionCheck()
+    private void PositionCheck()
     {
         if (player.position.x < this.gameObject.transform.position.x)
         {

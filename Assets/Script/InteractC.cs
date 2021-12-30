@@ -1,9 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractC : EnemyBase
 {
+    private bool isMovingDown;
+    private Animator anim;
+
     protected override void Start()
     {
         isMovingDown = false;
@@ -11,7 +14,7 @@ public class InteractC : EnemyBase
         anim = GetComponent<Animator>();
     }
 
-    protected override void Move()
+    protected override void GoesIntoFloor()
     {
         if (isEntered && isMovingDown)
         {

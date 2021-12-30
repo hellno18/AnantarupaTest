@@ -1,15 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractE : EnemyBase
 {
+    private bool isShrink;
+    [SerializeField] private Transform obj;
+    [SerializeField] private BoxCollider2D col;
+    [SerializeField] private Rigidbody2D rb2d;
+
     protected override void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         isShrink = false;
     }
-    protected override void Move()
+    protected override void Shrink()
     {
         if (isEntered)
         {
