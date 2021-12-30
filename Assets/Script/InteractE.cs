@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InteractE : MonoBehaviour
 {
-    public GameObject pressButtonE;
-    public GameObject pressedButtonE;
+    [SerializeField] private GameObject pressButtonE;
+    [SerializeField] private GameObject pressedButtonE;
     
-    [SerializeField] private bool isEntered;
+    private bool isEntered;
     private bool isShrink;
     private Rigidbody2D rb2d;
     [SerializeField] private BoxCollider2D col;
