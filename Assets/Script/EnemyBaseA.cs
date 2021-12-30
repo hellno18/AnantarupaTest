@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyBaseA : MonoBehaviour
 {
-    private bool isEntered;
+    protected bool isEntered;
     [SerializeField] protected GameObject pressButtonE;
     [SerializeField] protected GameObject pressedButtonE;
     [SerializeField] protected GameObject bubbleText;
 
-    private void Update()
+    protected void Update()
     {
         if (isEntered)
         {
@@ -29,7 +29,7 @@ public class EnemyBaseA : MonoBehaviour
     }
 
 
-    private IEnumerator DelayBubble()
+    protected IEnumerator DelayBubble()
     {
 
         yield return new WaitForSeconds(1);
