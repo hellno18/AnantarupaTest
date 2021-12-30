@@ -11,6 +11,7 @@ public class InteractB : EnemyBase
         boxCollider = this.gameObject.GetComponent<BoxCollider2D>();
         rb2d.isKinematic = true;
         boxCollider.isTrigger = true;
+        
     }
 
     protected override void Move()
@@ -28,23 +29,25 @@ public class InteractB : EnemyBase
                     rb2d.AddForce(Vector2.left * mForce);
                 if (isRight)
                     rb2d.AddForce(Vector2.right * mForce);
+                isEntered = false;
                 StartCoroutine(AddDrag());
             }
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                pressedButtonE.SetActive(false);
-                rb2d.isKinematic = true;
-                boxCollider.isTrigger = true;
-            }
+        }
+        
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            pressedButtonE.SetActive(false);
+            rb2d.isKinematic = true;
+            boxCollider.isTrigger = true;
         }
     }
 
     protected IEnumerator AddDrag()
     {
-
+       
         float current_drag = 0;
 
-        while (current_drag < 10)
+        while (current_drag < 4)
         {
             current_drag += Time.deltaTime * 2;
             rb2d.drag = current_drag;
