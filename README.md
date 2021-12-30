@@ -1,8 +1,10 @@
-# AnantarupaTest
+# Description
 
-files including scripts and assets
-# all assets downloaded from unity assets store
+files including scripts and assets<br />
+all assets downloaded from unity assets store<br />
 
-unity version : Unity 2020.3.25f1 LTS
-Other Tools : Photoshop, Visual Studio 2019
-9 Hours 30 minutes
+# Other information
+
+unity version : Unity 2020.3.25f1 LTS<br />
+Other Tools : Photoshop, Visual Studio 2019<br />
+9 Hours 30 minutes<br />
