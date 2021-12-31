@@ -14,7 +14,13 @@ public class InteractE : EnemyBase
         rb2d = GetComponent<Rigidbody2D>();
         isShrink = false;
     }
-    protected override void Shrink()
+
+    public override void Interact()
+    {
+        Shrink();
+    }
+
+    private void Shrink()
     {
         if (isEntered)
         {

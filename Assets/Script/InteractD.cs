@@ -14,7 +14,12 @@ public class InteractD : EnemyBase
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    protected override void Jump()
+    public override void Interact()
+    {
+        Jump();
+    }
+
+    private  void Jump()
     {
         if (isEntered)
         {

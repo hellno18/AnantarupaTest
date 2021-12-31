@@ -14,7 +14,12 @@ public class InteractC : EnemyBase
         anim = GetComponent<Animator>();
     }
 
-    protected override void GoesIntoFloor()
+    public override void Interact()
+    {
+        GoesIntoFloor();
+    }
+
+    private void GoesIntoFloor()
     {
         if (isEntered && isMovingDown)
         {

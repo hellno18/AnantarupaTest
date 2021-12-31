@@ -6,7 +6,12 @@ public class InteractA : EnemyBase
 {
     [SerializeField] private GameObject bubbleText;
 
-    protected override void ShowBubble()
+    public override void Interact()
+    {
+        ShowBubble();
+    }
+
+    private void ShowBubble()
     {
         if (isEntered)
         {

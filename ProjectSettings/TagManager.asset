@@ -6,15 +6,16 @@ TagManager:
   tags:
   - E_Pressed
   - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
+  - Player
   - Object
-  - 
   - 
   - 
   - 

@@ -11,6 +11,8 @@ public class InteractB : EnemyBase
     private bool isLeft;
     private bool isRight;
 
+    
+
     protected override void Start()
     {
         mForce = 50f;
@@ -21,7 +23,12 @@ public class InteractB : EnemyBase
         
     }
 
-    protected override void GoesAway()
+    public override void Interact()
+    {
+        GoesAway();
+    }
+
+    private void GoesAway()
     {
         if (isEntered)
         {

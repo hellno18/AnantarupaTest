@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float MovementSpeed = 1;
     private Rigidbody2D rb2d;
+    [SerializeField] private GameObject obstacleRay;
+
     // Start is called before the first frame update
 
     private void Start()
@@ -16,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Move();
+
+        if(Input.GetKeyDown(KeyCode.E))
+            CheckInteraction();
+     
     }
 
     private void Move()
@@ -26,5 +32,15 @@ public class PlayerController : MonoBehaviour
         // rotation player
         if (!Mathf.Approximately(0, movement))
             transform.rotation = movement > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+    }
+
+    private void CheckInteraction()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(obstacleRay.transform.position, -Vector2.left, 1f);
+        if (hit.collider !=null)
+        {
+            hit.transform.GetComponent<EnemyBase>().Interact();
+        }
+        
     }
 }
