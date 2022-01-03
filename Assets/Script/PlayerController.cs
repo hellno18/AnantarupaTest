@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float MovementSpeed = 1;
     private Rigidbody2D rb2d;
-    [SerializeField] private GameObject obstacleRay;
+    //[SerializeField] private GameObject obstacleRay;
     private bool isEntered;
     [SerializeField] private GameObject pressE;
     EnemyBase enemybase;
