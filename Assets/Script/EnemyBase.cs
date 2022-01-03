@@ -20,7 +20,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-
+    
     }
 
     protected virtual void OnTriggerExit2D(Collider2D other)
@@ -29,25 +29,19 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
 
-    public void SetEnter(bool x)
+    public virtual void SetEnter(bool x)
     {
          isEntered = x ;
+         pressButtonE.SetActive(x);
     }
 
     public bool GetEnter()
     {
+        
         return isEntered;
     }
 
-    public void ShowEUI()
-    {
-        pressButtonE.SetActive(true);
-    }
-
-    public void UnShowEUI()
-    {
-        pressButtonE.SetActive(false);
-    }
+    
 
     public void ShowPressedE()
     {

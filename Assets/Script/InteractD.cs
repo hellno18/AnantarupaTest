@@ -39,7 +39,9 @@ public class InteractD : EnemyBase
         {
             isGround = true;
         }
+        
     }
+
 
     protected override void OnTriggerExit2D(Collider2D other)
     {
@@ -49,6 +51,13 @@ public class InteractD : EnemyBase
         }
 
     }
+    public override void SetEnter(bool x)
+    {
+        base.SetEnter(x);
+        ChangeCollision();
+        UnShowPressedE();
+    }
+
 
     public void ChangeCollision()
     {

@@ -9,12 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject obstacleRay;
     private bool isEntered;
     [SerializeField] private GameObject pressE;
-
+    EnemyBase enemybase;
     // Start is called before the first frame update
 
     private void Start()
     {
         rb2d = this.gameObject.GetComponent<Rigidbody2D>();
+        
     }
 
     private void Update()
@@ -39,10 +40,14 @@ public class PlayerController : MonoBehaviour
 
     private void CheckInteraction()
     {
-        RaycastHit2D hit = Physics2D.Raycast(obstacleRay.transform.position, -Vector2.left, 1f);
-        if (hit.collider !=null)
+        //RaycastHit2D hit = Physics2D.Raycast(obstacleRay.transform.position, -Vector2.left, 1f);
+        /*if (hit.collider !=null)
         {
             hit.transform.GetComponent<EnemyBase>().Interact();
+        }*/
+        if (enemybase != null)
+        {
+            enemybase.Interact();
         }
     }
 
@@ -50,14 +55,20 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            enemybase = other.gameObject.GetComponent<EnemyBase>();
+            enemybase.SetEnter(true);
 
-            other.gameObject.GetComponent<EnemyBase>().SetEnter(true);
-            other.gameObject.GetComponent<EnemyBase>().ShowEUI();
-            if(other.gameObject.name == "ObjectD")
-            {
-                other.gameObject.GetComponent<InteractD>().ChangeCollision();
-                    other.gameObject.GetComponent<EnemyBase>().UnShowPressedE();
-            }
+
+            //enemybase.ShowEUI();
+            /*
+
+             other.gameObject.GetComponent<EnemyBase>().ShowEUI();
+             if(other.gameObject.name == "ObjectD")
+             {
+                 other.gameObject.GetComponent<InteractD>().ChangeCollision();
+                 other.gameObject.GetComponent<EnemyBase>().UnShowPressedE();
+             }
+            */
         }
         
     }
@@ -66,6 +77,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            enemybase = null;
+            /*
             other.gameObject.GetComponent<EnemyBase>().SetEnter(false);
             other.gameObject.GetComponent<EnemyBase>().UnShowEUI();
             if(other.gameObject.name == "ObjectD")
@@ -73,6 +86,7 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.GetComponent<InteractD>().ChangeCollision();
                 other.gameObject.GetComponent<EnemyBase>().UnShowPressedE();
             }
+            */
         }
     }
 
