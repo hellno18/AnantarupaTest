@@ -33,7 +33,7 @@ public class InteractB : EnemyBase
         if (isEntered)
         {
             PositionCheck();
-            if (Input.GetKeyDown(KeyCode.E))
+            
             {
                 pressButtonE.SetActive(false);
                 pressedButtonE.SetActive(true);
@@ -48,12 +48,7 @@ public class InteractB : EnemyBase
             }
         }
         
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            pressedButtonE.SetActive(false);
-            rb2d.isKinematic = true;
-            boxCollider.isTrigger = true;
-        }
+       
     }
 
     private IEnumerator AddDrag()
@@ -90,23 +85,5 @@ public class InteractB : EnemyBase
         }
     }
 
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(true);
-            isEntered = true;
-        }
-    }
-
-    protected override void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(false);
-            rb2d.isKinematic = true;
-            boxCollider.isTrigger = true;
-            isEntered = false;
-        }
-    }
+    
 }

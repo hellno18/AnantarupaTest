@@ -23,16 +23,9 @@ public class InteractD : EnemyBase
     {
         if (isEntered)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                pressedButtonE.SetActive(true);
-                rb2d.velocity = new Vector2(0, Mathf.Sqrt(-2.0f * Physics2D.gravity.y * mForce));
-
-            }
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                pressedButtonE.SetActive(false);
-            }
+           
+            pressedButtonE.SetActive(true);
+            rb2d.velocity = new Vector2(0, Mathf.Sqrt(-2.0f * Physics2D.gravity.y * mForce));
         }
         else
         {
@@ -42,12 +35,6 @@ public class InteractD : EnemyBase
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(true);
-            isEntered = true;
-            ChangeCollision();
-        }
         if (other.CompareTag("Ground"))
         {
             isGround = true;
@@ -56,12 +43,6 @@ public class InteractD : EnemyBase
 
     protected override void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(false);
-            isEntered = false;
-            ChangeCollision();
-        }
         if (other.CompareTag("Ground"))
         {
             isGround = false;
@@ -69,7 +50,7 @@ public class InteractD : EnemyBase
 
     }
 
-    protected void ChangeCollision()
+    public void ChangeCollision()
     {
         if (isEntered && isGround)
         {

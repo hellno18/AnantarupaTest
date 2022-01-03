@@ -23,23 +23,20 @@ public class InteractC : EnemyBase
     {
         if (isEntered && isMovingDown)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                anim.SetBool("isDown", false);
-                isMovingDown = false;
-                StartCoroutine(Delay());
-            }
+            
+           anim.SetBool("isDown", false);
+           isMovingDown = false;
+           StartCoroutine(Delay());
+            
 
         }
 
         else if (isEntered && !isMovingDown)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                isMovingDown = true;
-                anim.SetBool("isDown", true);
-                StartCoroutine(Delay());
-            }
+            isMovingDown = true;
+            anim.SetBool("isDown", true);
+            StartCoroutine(Delay());
+            
         }
 
 
@@ -72,32 +69,7 @@ public class InteractC : EnemyBase
     }
 
 
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(true);
-            isEntered = true;
-        }
-    }
-
-    protected override void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(false);
-            isEntered = false;
-        }
-    }
-
-    protected override void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(true);
-            isEntered = true;
-        }
-    }
+    
 
 
 }

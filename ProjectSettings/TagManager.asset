@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - E_Pressed
   - Ground
   - Enemy
+  - Press_E
+  - E_pressed
   layers:
   - Default
   - TransparentFX

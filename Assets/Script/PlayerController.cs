@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.E))
             CheckInteraction();
-     
+        
+
     }
 
     private void Move()
@@ -51,9 +52,14 @@ public class PlayerController : MonoBehaviour
         {
 
             other.gameObject.GetComponent<EnemyBase>().SetEnter(true);
-            other.gameObject.GetComponent<EnemyBase>().ShowUI();
-
+            other.gameObject.GetComponent<EnemyBase>().ShowEUI();
+            if(other.gameObject.name == "ObjectD")
+            {
+                other.gameObject.GetComponent<InteractD>().ChangeCollision();
+                    other.gameObject.GetComponent<EnemyBase>().UnShowPressedE();
+            }
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -61,14 +67,16 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyBase>().SetEnter(false);
-            other.gameObject.GetComponent<EnemyBase>().UnShowUI();
+            other.gameObject.GetComponent<EnemyBase>().UnShowEUI();
+            if(other.gameObject.name == "ObjectD")
+            {
+                other.gameObject.GetComponent<InteractD>().ChangeCollision();
+                other.gameObject.GetComponent<EnemyBase>().UnShowPressedE();
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-
-    }
+    
 }
 
 
