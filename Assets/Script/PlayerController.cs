@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float MovementSpeed = 1;
     private Rigidbody2D rb2d;
     [SerializeField] private GameObject obstacleRay;
+    private bool isEntered;
+    [SerializeField] private GameObject pressE;
 
     // Start is called before the first frame update
 
@@ -41,6 +43,32 @@ public class PlayerController : MonoBehaviour
         {
             hit.transform.GetComponent<EnemyBase>().Interact();
         }
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+
+            other.gameObject.GetComponent<EnemyBase>().SetEnter(true);
+            other.gameObject.GetComponent<EnemyBase>().ShowUI();
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<EnemyBase>().SetEnter(false);
+            other.gameObject.GetComponent<EnemyBase>().UnShowUI();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+
     }
 }
+
+

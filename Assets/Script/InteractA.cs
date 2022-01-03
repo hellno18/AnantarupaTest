@@ -15,7 +15,7 @@ public class InteractA : EnemyBase
     {
         if (isEntered)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            
             {
                 pressedButtonE.SetActive(true);
                 bubbleText.SetActive(true);
@@ -37,22 +37,6 @@ public class InteractA : EnemyBase
         bubbleText.SetActive(false);
     }
 
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(true);
-            isEntered = true;
-        }
-    }
-
-    protected override void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            pressButtonE.SetActive(false);
-            isEntered = false;
-        }
-    }
+    
 
 }

@@ -33,4 +33,23 @@ public abstract class EnemyBase : MonoBehaviour
 
     }
 
+    public void SetEnter(bool x)
+    {
+         isEntered = x ;
+    }
+
+    public bool GetEnter()
+    {
+        return isEntered;
+    }
+
+    public void ShowUI()
+    {
+        pressButtonE.SetActive(true);
+    }
+
+    public void UnShowUI()
+    {
+        pressButtonE.SetActive(false);
+    }
 }
