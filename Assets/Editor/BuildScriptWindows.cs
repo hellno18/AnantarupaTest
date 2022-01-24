@@ -8,8 +8,8 @@ public class BuildScriptWindows : MonoBehaviour
     public static void MyBuildAndroid()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/AnantarupaTest.unity" };
-        buildPlayerOptions.locationPathName = "Builds";
+        buildPlayerOptions.scenes = new[] { "Assets/Scenes/AnantarupaTest.unity" };
+        buildPlayerOptions.locationPathName = "Builds/Android/Game.apk";
         buildPlayerOptions.target = BuildTarget.Android;
         buildPlayerOptions.options = BuildOptions.None;
 
