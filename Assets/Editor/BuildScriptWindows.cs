@@ -9,7 +9,7 @@ public class BuildScriptWindows : MonoBehaviour
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = new[] { "Assets/AnantarupaTest.unity" };
-        buildPlayerOptions.locationPathName = "Build/android/AnantarupaTest.apk";
+        buildPlayerOptions.locationPathName = "Build/Android/AnantarupaTest.apk";
         buildPlayerOptions.target = BuildTarget.Android;
         buildPlayerOptions.options = BuildOptions.None;
 
