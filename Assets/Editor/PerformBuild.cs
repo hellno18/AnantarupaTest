@@ -33,7 +33,8 @@ namespace teamcity
                 UnityEditor.PlayerSettings.Android.bundleVersionCode = bundleVersionCode;
                 UnityEditor.PlayerSettings.macOS.buildNumber = bundleVersionCode.ToString();
             }
-                Build(".apk", BuildTarget.Android);
+
+            Build(".apk", BuildTarget.Android);
         }
 
         public static void BuildToiOS()
