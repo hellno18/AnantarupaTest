@@ -19,6 +19,11 @@ namespace teamcity
             Build(".app", BuildTarget.iOS);
         }
 
+        public static void ToWindows64()
+        {
+            Build(".exe", BuildTarget.StandaloneWindows64);
+        }
+
         private static void Build(string nameDotExtentions, BuildTarget buildTarget)
         {
             BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
