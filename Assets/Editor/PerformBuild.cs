@@ -5,6 +5,7 @@ using UnityEditor.Build.Reporting;
 
 namespace teamcity
 {
+
     public class PerformBuild : MonoBehaviour
     {
         private const string PROJECT_NAME = "AnantarupaTest";
@@ -43,6 +44,28 @@ namespace teamcity
             return new string[] {
                 "Assets/Scenes/AnantarupaTest.unity",
             };
+        }
+        [MenuItem("Build/icrease ver")]
+        private static string IncVersion()
+        {
+            var bundleVersionSplit = UnityEditor.PlayerSettings.bundleVersion.Split('.');
+            int major = 0;
+            int minor = 0;
+            int subVersion = 0;
+            if (bundleVersionSplit.Length >= 1)
+                int.TryParse(bundleVersionSplit[0], out major);
+            if (bundleVersionSplit.Length >= 2)
+                int.TryParse(bundleVersionSplit[1], out minor);
+            if (bundleVersionSplit.Length >= 3)
+                int.TryParse(bundleVersionSplit[2], out subVersion);
+            ++subVersion;
+            string version = string.Format("{0}.{1}.{2}", major, minor, subVersion);
+            var bundleVersionCode = (major * 100000) + (minor * 1000) + subVersion;
+
+            UnityEditor.PlayerSettings.bundleVersion = version;
+            UnityEditor.PlayerSettings.Android.bundleVersionCode = bundleVersionCode;
+            UnityEditor.PlayerSettings.macOS.buildNumber = bundleVersionCode.ToString();
+            return version;
         }
 
         private static void DebugResult(BuildPlayerOptions buildPlayerOptions)
