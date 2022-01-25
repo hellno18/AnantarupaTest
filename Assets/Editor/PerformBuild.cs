@@ -46,7 +46,7 @@ namespace teamcity
             };
         }
         [MenuItem("Build/icrease ver")]
-        private static string IncVersion()
+        public static string IncVersion()
         {
             var bundleVersionSplit = UnityEditor.PlayerSettings.bundleVersion.Split('.');
             int major = 0;
