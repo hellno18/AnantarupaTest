@@ -2,28 +2,33 @@ using UnityEditor;
 using UnityEngine;
 using UnityEditor.Build.Reporting;
 
-public class BuildScriptWindows : MonoBehaviour
+
+namespace teamcity
 {
-    [MenuItem("Build/Build Android")]
-    public static void MyBuildAndroid()
+    public class BuildScriptWindows : MonoBehaviour
     {
-        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Scenes/AnantarupaTest.unity" };
-        buildPlayerOptions.locationPathName = "Builds/Android/Game.apk";
-        buildPlayerOptions.target = BuildTarget.Android;
-        buildPlayerOptions.options = BuildOptions.None;
-
-        BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
-        BuildSummary summary = report.summary;
-
-        if (summary.result == BuildResult.Succeeded)
+        [MenuItem("Build/Build Android")]
+        public static void MyBuildAndroid()
         {
-            Debug.Log("Build succeeded: " + summary.totalSize + " bytes");
-        }
+            BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+            buildPlayerOptions.scenes = new[] { "Assets/Scenes/AnantarupaTest.unity" };
+            buildPlayerOptions.locationPathName = "Builds/Android/Game.apk";
+            buildPlayerOptions.target = BuildTarget.Android;
+            buildPlayerOptions.options = BuildOptions.None;
 
-        if (summary.result == BuildResult.Failed)
-        {
-            Debug.Log("Build failed");
+            BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
+            BuildSummary summary = report.summary;
+
+            if (summary.result == BuildResult.Succeeded)
+            {
+                Debug.Log("Build succeeded: " + summary.totalSize + " bytes");
+            }
+
+            if (summary.result == BuildResult.Failed)
+            {
+                Debug.Log("Build failed");
+            }
         }
     }
+
 }
