@@ -7,7 +7,6 @@ namespace teamcity
 {
     public class BuildScriptWindows : MonoBehaviour
     {
-        [MenuItem("Build/Build Android")]
         public static void MyBuildAndroid()
         {
             BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
