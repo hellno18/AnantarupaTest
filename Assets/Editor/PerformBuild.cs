@@ -11,10 +11,9 @@ namespace teamcity
         private const string PROJECT_NAME = "AnantarupaTest";
         
         [MenuItem("Build/ Build To Android")]
-        public static void BuildToAndroid(bool increaseVersion)
+        public static void BuildToAndroid()
         {
-            if (increaseVersion)
-            {
+           
                 var bundleVersionSplit = UnityEditor.PlayerSettings.bundleVersion.Split('.');
                 int major = 0;
                 int minor = 0;
@@ -32,8 +31,7 @@ namespace teamcity
                 UnityEditor.PlayerSettings.bundleVersion = version;
                 UnityEditor.PlayerSettings.Android.bundleVersionCode = bundleVersionCode;
                 UnityEditor.PlayerSettings.macOS.buildNumber = bundleVersionCode.ToString();
-            }
-
+            
             Build(".apk", BuildTarget.Android);
         }
 
